@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopath Traveler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .card{
+      background-color: white;
+     
+    }
+    h2{
+      background-color: white;
+      font-size: 35px;
+      border-radius: 20px;
+      width: 1200px;
+      margin-top: 200px;
+    }
+    h1{
+      color: white;
+      margin-top: 100px;
+    }
+    
+
+</style>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <img src="img/Octopath_Traveler_Logo_29.webp" alt="" width="250px">
+      <ul class="nav-links">
+        <li><a href="#">INÍCIO</a></li>
+        <li><a href="personagens.html">PERSONAGENS</a></li>
+        <li><a href="#">ARTES</a></li>
+        <li><a href="#">CONTATO</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <section class="slider">
+<center>
+    <div class="seta arrow-left"><i class="fas fa-chevron-circle-left"></i></div>
+
+      <img src="img/oc1.jpg" alt="slide-1.jpg">
+      <img src="img/oc8.jpg" alt="slide-2.jpg">
+      <img src="img/oc3.png" alt="slide-3.jpg">
+      <img src="img/oc4.jpg" alt="slide-4.jpg">
+
+    <div class="seta arrow-right"><i class="fas fa-chevron-circle-right"></i></div>
+
+    <div class="paginacao">
+  
+      <div class="botao"> <i class="far fa-circle"></i> </div>
+      <div class="botao"> <i class="far fa-circle"></i> </div>
+      <div class="botao"> <i class="far fa-circle"></i> </div>
+      <div class="botao"> <i class="far fa-circle"></i> </div>
+  
+    </div>
+  </center>
+  </section><!--slider-->
+  
+<h1>Algumas informações relevantes</h1>
+  <div class="container">
+    <div class="balao-fala">
+      <div class="triangulo"></div>
+      <div class="conteudo">
+        <p>Octopath Traveler é um jogo eletrônico de RPG de aventura desenvolvido pela Square Enix e Acquire e publicado pela Square Enix e Nintendo.
+          Ele foi lançado exclusivamente para Nintendo Switch em 13 de julho de 2018. Porém sua exclusividade acabou encerrando e passou a ser possível 
+         jogar em outras plataformas como o Xbox.</p>
+      </div>
+    </div>
+    <div class="balao-fala">
+      <div class="triangulo"></div>
+      <div class="conteudo">
+        <p>O jopo conta com uma grande quantidade de horas jogáveis levando em torno de 90 horas para se concluir o jogo por completo. </br> Octopath Traveler é um JRPG e os JRPGs são conhecidos por oferecerem experiências imersivas, muitas vezes apresentando mundos vastos para explorar, missões secundárias e sistemas de progressão de personagens, como ganho de experiência e desenvolvimento de habilidades. </p>
+      </div>
+    </div>
+    <div class="balao-fala">
+      <div class="triangulo"></div>
+      <div class="conteudo">
+        <p>JRPG é a sigla para Japanese Role-Playing Game, ou seja, um jogo de interpretação de papel de origem japonesa. Esses jogos têm suas raízes nos RPGs de mesa, onde os jogadores assumem papéis de personagens em mundos fictícios e participam de histórias narrativas. No contexto dos videogames, os JRPGs são caracterizados por elementos como enredos complexos e envolventes, personagens cativantes, sistemas de batalha baseados em turnos ou ação em tempo real, e uma estética visual distintiva, que muitas vezes inclui designs de personagens estilo anime. Exemplos populares de JRPGs incluem séries como Final Fantasy, Dragon Quest e Persona.</p>
+      </div>
+    </div>
+  </div>
+  
+  <h1>Party usada pelo criador da página para zerar o game!</h1>       
+  <button onclick="esconde('conteudo')">Esconder</button>
+  <button onclick="mostra('conteudo')">Mostrar</button>
+
+  <div id="conteudo">
+    <div class="card-container">
+      <div class="card">
+        <img src="img/oc2.jpg" alt="Card 1">
+        <div class="card-content">
+          <h3>Therion</h3>
+          <p>O Ladrão</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/oc5.jpg" alt="Card 2">
+        <div class="card-content">
+          <h3>Olberic</h3>
+          <p>O Guerreiro</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/oc6.jpg" alt="Card 3">
+        <div class="card-content">
+          <h3>H’aanit</h3>
+          <p>A Caçadora</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/oc7.jpg" alt="Card 4">
+        <div class="card-content">
+          <h3>Alfyn</h3>
+          <p>O Boticário</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <script>
+
+    const imgs = document.querySelectorAll(".slider img");
+    const dots = document.querySelectorAll(".botao i");
+    const leftArrow = document.querySelector(".arrow-left");
+    const rightArrow = document.querySelector(".arrow-right");
+    
+    let currentIndex = 0;
+    let time = 7000; //Tempo padrão para apresentação de slides automática
+    
+    const defClass = (startPos, index) => {
+      for (let i = startPos; i < imgs.length; i++) {
+        imgs[i].style.display = "none";
+        dots[i].classList.remove("fa-dot-circle");
+        dots[i].classList.add("fa-circle");
+      }
+      imgs[index].style.display = "block";
+      dots[index].classList.add("fa-dot-circle");
+    };
+    
+    defClass(1, 0);
+    
+    leftArrow.addEventListener("click", function(){
+      currentIndex <= 0 ? currentIndex = imgs.length-1 : currentIndex--;
+      defClass(0, currentIndex);
+    });
+    
+    rightArrow.addEventListener("click", function(){
+      currentIndex >= imgs.length-1 ? currentIndex = 0 : currentIndex++;
+      defClass(0, currentIndex);
+    });
+    
+    const startAutoSlide = () => {
+      setInterval(() => {
+        currentIndex >= imgs.length-1 ? currentIndex = 0 : currentIndex++;
+        defClass(0, currentIndex);
+      }, time);
+    };
+    
+    startAutoSlide(); //Inicia o slideshow
+    
+    function esconde(el) {
+                document.getElementById(el).style.display = 'none';
+            }
+            function mostra(el) {
+                document.getElementById(el).style.display = 'block';
+            } 
+            function toggle(el) {
+                var display = document.getElementById(el).style.display;
+                if(display == "none"){
+                    document.getElementById(el).style.display = 'block';        
+                }                    
+                else{
+                    document.getElementById(el).style.display = 'none';
+                }
+            }   
+    </script>
+  
+  <footer class="rodape">
+    <div class="container">
+      <div class="info-contato">
+        <h3>Entre em Contato</h3>
+        <div class="contato-item">
+          <p>Telefone:</p>
+          <p>(84) 9 9999-9999</p>
+        </div>
+        <div class="contato-item">
+          <p>Email:</p>
+          <p>diogofarias598@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+  </html>
+</body>
+</html>
